@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -223,20 +221,20 @@ public class ImageGridAdapter extends BaseAdapter {
 
         int type = getItemViewType(i);
         if(type == TYPE_CAMERA){
-            view = mInflater.inflate(R.layout.list_item_camera, viewGroup, false);
+            view = mInflater.inflate(R.layout.choose_list_item_camera, viewGroup, false);
             view.setTag(null);
         }else if(type == TYPE_TXT){
-            view = mInflater.inflate(R.layout.list_item_text, viewGroup, false);
+            view = mInflater.inflate(R.layout.choose_list_item_text, viewGroup, false);
             view.setTag(null);
         } else if(type == TYPE_NORMAL){
             ViewHolde holde;
             if(view == null){
-                view = mInflater.inflate(R.layout.list_item_image, viewGroup, false);
+                view = mInflater.inflate(R.layout.choose_list_item_image, viewGroup, false);
                 holde = new ViewHolde(view);
             }else{
                 holde = (ViewHolde) view.getTag();
                 if(holde == null){
-                    view = mInflater.inflate(R.layout.list_item_image, viewGroup, false);
+                    view = mInflater.inflate(R.layout.choose_list_item_image, viewGroup, false);
                     holde = new ViewHolde(view);
                 }
             }

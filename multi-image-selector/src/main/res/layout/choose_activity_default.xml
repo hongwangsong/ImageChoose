@@ -7,7 +7,7 @@
     <include
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        layout="@layout/cmp_customer_actionbar" />
+        layout="@layout/choose_cmp_customer_actionbar" />
 
     <FrameLayout
         android:id="@+id/image_grid"

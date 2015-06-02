@@ -10,7 +10,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -44,7 +43,6 @@ import me.nereo.imagechoose.bean.Folder;
 import me.nereo.imagechoose.bean.Image;
 import me.nereo.imagechoose.utils.FileUtils;
 import me.nereo.imagechoose.utils.TimeUtils;
-import song.image.crop.Crop;
 
 
 /**
@@ -122,7 +120,7 @@ public class MultiImageSelectorFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_multi_image, container, false);
+        return inflater.inflate(R.layout.choose_fragment_multi_image, container, false);
     }
 
     @Override

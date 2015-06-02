@@ -71,7 +71,7 @@ public class FolderAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;
         if(view == null){
-            view = mInflater.inflate(R.layout.list_item_folder, viewGroup, false);
+            view = mInflater.inflate(R.layout.choose_list_item_folder, viewGroup, false);
             holder = new ViewHolder(view);
         }else{
             holder = (ViewHolder) view.getTag();

@@ -110,12 +110,15 @@ public class MainActivity extends ActionBarActivity {
                 mResultText.setText(sb.toString());
             }else{
 
-                if(HDApp.getInstance().getSingleChooseFile()!=null){
+                if(HDApp.getInstance().getSingleChooseFile()!=null && HDApp.getInstance().getSingleChooseFile().getTotalSpace()>0){
                     Bitmap loacalBitmap = getLoacalBitmap(HDApp.getInstance().getSingleChooseFile());
                     iv_result.setImageBitmap(loacalBitmap);
                     HDApp.getInstance().setSingleChooseFile(null);
 
                     Toast.makeText(this, "裁切完成" + iv_result.getWidth() + "  " + iv_result.getHeight(), Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "裁切完成 空文件" , Toast.LENGTH_SHORT).show();
+
                 }
             }
         }

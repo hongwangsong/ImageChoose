@@ -7,7 +7,7 @@ import java.io.File;
 
 public class HDApp extends Application {
     private static HDApp instance;
-//    private Bitmap singleChoose;
+
     private File singleChooseFile;
     public static HDApp getInstance() {
         return instance;
@@ -18,17 +18,6 @@ public class HDApp extends Application {
         instance = this;
 
     }
-
-//    public Bitmap getSingleChoose() {
-//        return singleChoose;
-//    }
-//    public void setSingleChoose(Bitmap singleChoose) {
-//        if(singleChoose == null){
-//            this.singleChoose = null;
-//        }else{
-//            this.singleChoose = singleChoose;
-//        }
-//    }
 
     public File getSingleChooseFile() {
         return singleChooseFile;

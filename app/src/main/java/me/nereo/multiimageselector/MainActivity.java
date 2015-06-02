@@ -1,15 +1,21 @@
 package me.nereo.multiimageselector;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import me.nereo.imagechoose.MultiImageSelectorActivity;
@@ -23,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
     private TextView mResultText;
     private RadioGroup mChoiceMode, mShowCamera,mShowText;
     private EditText mRequestNum;
+    private ImageView iv_result;
 
     private ArrayList<String> mSelectPath;
 
@@ -36,6 +43,7 @@ public class MainActivity extends ActionBarActivity {
         mShowCamera = (RadioGroup) findViewById(R.id.show_camera);
         mShowText = (RadioGroup) findViewById(R.id.show_text_group);
         mRequestNum = (EditText) findViewById(R.id.request_num);
+        iv_result = (ImageView) findViewById(R.id.iv_result);
 
         mChoiceMode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -102,12 +110,24 @@ public class MainActivity extends ActionBarActivity {
                 mResultText.setText(sb.toString());
             }else{
 
-                if(HDApp.getInstance().getSingleChoose()!=null){
-                    Toast.makeText(this,"裁切11123",Toast.LENGTH_SHORT).show();
+                if(HDApp.getInstance().getSingleChooseFile()!=null){
+                    Bitmap loacalBitmap = getLoacalBitmap(HDApp.getInstance().getSingleChooseFile());
+                    iv_result.setImageBitmap(loacalBitmap);
+                    HDApp.getInstance().setSingleChooseFile(null);
+
+                    Toast.makeText(this, "裁切完成" + iv_result.getWidth() + "  " + iv_result.getHeight(), Toast.LENGTH_SHORT).show();
                 }
             }
         }
     }
 
-
+    public static Bitmap getLoacalBitmap(File file) {
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            return BitmapFactory.decodeStream(fis);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

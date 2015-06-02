@@ -139,7 +139,7 @@ public class CropImageActivity extends MonitoredActivity{
                     }
                     b.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
                 }
-                HDApp.getInstance().setSingleChoose(b);
+//                HDApp.getInstance().setSingleChoose(b);
             } catch (IOException e) {
                 CLog.e("Cannot open file: " + mSaveUri);
             } finally {

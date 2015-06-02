@@ -15,13 +15,16 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import me.nereo.imagechoose.ShowActivity;
 import me.nereo.imagechoose.bean.Image;
+import me.nereo.imagechoose.utils.FileUtils;
 import me.nereo.multi_image_selector.R;
 import song.image.crop.Crop;
+import song.image.crop.HDApp;
 
 /**
  * 图片Adapter
@@ -251,23 +254,14 @@ public class ImageGridAdapter extends BaseAdapter {
                             mContext.startActivity(showIntent);
                         }
                     });
-                }else{
-
+                }else{//单张裁切
                     holde.iv_choose_area.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            File dest =new File(Environment.getExternalStorageDirectory() + "/test");
-                            if(!dest.exists()){
-                                try {
-                                    dest.mkdirs();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                            File destFile =new File(dest,"ok.png");
-
+                           File tmpFile= FileUtils.createTmpFile(mContext);
+                            HDApp.getInstance().setSingleChooseFile(tmpFile);
                             new Crop(Uri.fromFile(new File(image.path)))
-                                    .output(Uri.fromFile(destFile))
+                                    .output(Uri.fromFile(tmpFile))
                                     .withWidth(640)
                                     .start((Activity) mContext);
 

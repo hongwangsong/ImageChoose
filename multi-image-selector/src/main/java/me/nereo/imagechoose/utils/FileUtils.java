@@ -20,11 +20,12 @@ public class FileUtils {
         if(state.equals(Environment.MEDIA_MOUNTED)){
             // 已挂载
 //            File pic = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-            File pic = new File(Environment.getExternalStorageDirectory()
-                    +"/"+ context.getPackageName()+ "/pic");
+            File pic = new File(Environment.getExternalStorageDirectory()+File.separator
+                    +context.getPackageName()+ File.separator+"pic");
             if(!pic.exists()){
                 pic.mkdirs();
             }
+
 
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.CHINA).format(new Date());
             String fileName = "multi_image_"+timeStamp+"";

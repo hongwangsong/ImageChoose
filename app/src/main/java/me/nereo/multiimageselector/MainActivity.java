@@ -78,16 +78,12 @@ public class MainActivity extends ActionBarActivity {
                 }
 
                 Intent intent = new Intent(MainActivity.this, MultiImageSelectorActivity.class);
-                // 是否显示拍摄图片
-                intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_CAMERA, showCamera);
-                intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_TEXT, showText);
-                // 最大可选择图片数量
-                intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_COUNT, maxNum);
-                // 选择模式
-                intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_MODE, selectedMode);
-                // 默认选择
-                if(mSelectPath != null && mSelectPath.size()>0){
-                    intent.putExtra(MultiImageSelectorActivity.EXTRA_DEFAULT_SELECTED_LIST, mSelectPath);
+                intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_CAMERA, showCamera);// 是否显示拍摄图片
+                intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_TEXT, showText);//显示文本
+                intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_COUNT, maxNum);// 最大可选择图片数量
+                intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_MODE, selectedMode); // 选择模式
+                if(mSelectPath != null && mSelectPath.size()>0){// 回显已经选择的图片
+//                    intent.putExtra(MultiImageSelectorActivity.EXTRA_DEFAULT_SELECTED_LIST, mSelectPath);
                 }
                 startActivityForResult(intent, REQUEST_IMAGE);
 

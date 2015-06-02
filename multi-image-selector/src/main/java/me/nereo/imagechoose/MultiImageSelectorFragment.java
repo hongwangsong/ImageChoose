@@ -147,6 +147,7 @@ public class MultiImageSelectorFragment extends Fragment {
         mIsShowCamera = getArguments().getBoolean(EXTRA_SHOW_CAMERA, true);
         mIsShowText = getArguments().getBoolean(EXTRA_SHOW_TEXT, true);
         mImageAdapter = new ImageGridAdapter(getActivity(), mIsShowCamera,mIsShowText);
+        mImageAdapter.setData(new ArrayList<Image>());//清空
         // 是否显示选择指示器
         mImageAdapter.showSelectIndicator(mode == MODE_MULTI);
 

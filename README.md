@@ -61,7 +61,23 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 * Step 4
 No more steps, just enjoy. :)
 
--------------------
+* AndroidStudio gradle usage：
+ step 1
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+ step 2
+ dependencies {
+	        compile 'com.github.hongwangsong:ImageChoose:1.0'
+	}
+
+ Step 3
+No more steps, just enjoy. :)
 
 ###Custom Activity Style
 * Custome your own Activity

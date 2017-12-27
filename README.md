@@ -63,7 +63,7 @@ No more steps, just enjoy. :)
 
 ## AndroidStudio gradle usage：
 * step 1
-、、、
+```
 Add it in your root build.gradle at the end of repositories:
 
 allprojects {
@@ -73,12 +73,12 @@ allprojects {
 	}
 }
 	
-、、、
+```
 * step 2
-
+```
  dependencies {compile 'com.github.hongwangsong:ImageChoose:1.0'}
  
-
+```
 ###Custom Activity Style
 * Custome your own Activity
 ```java

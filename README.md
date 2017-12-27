@@ -22,7 +22,7 @@ Declare `MultiImageSelectorActivity` in your `AndroidManifest.xml` .
 ```xml
 <activity
     android:configChanges="orientation|screenSize"
-    android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity" />
+    android:name="me.nereo.imagechoose.MultiImageSelectorActivity" />
 ```
 
 * Step 2
